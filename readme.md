@@ -17,22 +17,21 @@ convert to mp4, keep all audio tracks
 ffmpeg -i adobe.mkv -c copy -map 0 adobe.mp4
 ```
 
-## Extracting audio
+# Extracting audio
+Extracti
 https://trac.ffmpeg.org/wiki/Encode/MP3
 
-Extract to mp3 with the different qualities
-
-Static bitrates
-Best static bitrate: -b:a 320k -> 320 kb/s
+## mp3 with static bitrate
+320kbps (best) static bitrate: -b:a 320k -> 320 kb/s
 ```sh
 ffmpeg -i azure_debian_10_alex.mkv -b:a 320k azure_debian_320KBps.mp3 #320 kb/s
 ```
 256kbps static bitrate: -b:a 256k -> 256kb/s
 ```sh
-ffmpeg -i azure_debian_10_alex.mkv -b:a 256k azure_debian_256KBps.mp3
+ffmpeg -i azure_debian_10_alex.mkv -b:a 256k azure_debian_256KBps.mp3 #256 kb/s
 ```
 
-Variable bitrates
+## mp3 with variable bitrate
 Best variable bitrate: -q:a 0 -> 278 kb/s 
 ```sh
 ffmpeg -i azure_debian_10_alex.mkv -q:a 0 azure_debian_qa0.mp3 #278 kb/s
@@ -43,11 +42,11 @@ ffmpeg -i azure_debian_10_alex.mkv -q:a 1 azure_debian_qa1.mp3 #255 kb/s
 ```
 Bad variable bitrate: -q:a 9 -> 63 kb/s
 ```sh
-ffmpeg -i azure_debian_10_alex.mkv -q:a 9 azure_debian_qa9.mp3 #255 kb/s
+ffmpeg -i azure_debian_10_alex.mkv -q:a 9 azure_debian_qa9.mp3 #63 kb/s
 ```
 Worst variable bitrate: -q:a 10 -> 49 kb/s
 ```sh
-ffmpeg -i azure_debian_10_alex.mkv -q:a 10 azure_debian_qa10.mp3 #255 kb/s
+ffmpeg -i azure_debian_10_alex.mkv -q:a 10 azure_debian_qa10.mp3 #49 kb/s
 ```
 
 
