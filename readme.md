@@ -21,19 +21,31 @@ ffmpeg -i adobe.mkv -c copy -map 0 adobe.mp4
 https://trac.ffmpeg.org/wiki/Encode/MP3
 
 Extract to mp3 with the *highest* quality
+320 kb/s
 ```sh
-ffmpeg -i azure_debian_10_alex.mkv -b:a 320k azure_debian_320KBps.mp3
-ffprobe azure_debian_320KBps.mp3 #bitrate: 320 kb/s
+ffmpeg -i azure_debian_10_alex.mkv -b:a 320k azure_debian_320KBps.mp3 #320 kb/s
+```
+278 kb/s variable bitrate
+```sh
+ffmpeg -i azure_debian_10_alex.mkv -q:a 0 azure_debian_qa0.mp3 #278 kb/s
+```
+255 kb/s variable bitrate
+```sh
+ffmpeg -i azure_debian_10_alex.mkv -q:a 1 azure_debian_qa1.mp3 #255 kb/s
 ```
 
-Extract to mp3 with next-highest quality
+
+```sh
+ffmpeg -i adobe.mkv -c:a mp3 -q:a 1 adobe.mp3 #ffprobe bitrate: 278 kb/s
+#-q:a -> variable bit rate
+
+Extract to mp3 with next-highest quality?
 ```sh
 ffmpeg -i azure_debian_10_alex.mkv -q:a 0 azure_debian_245KBps.mp3
 ffprobe azure_debian_3.mp3 #bitrate: 278 kb/s
 ```
 
-ffmpeg -i adobe.mkv -c:a mp3 -q:a 1 adobe.mp3
-#-q:a -> variable bit rate
+
 
 Keep different audio tracks
 ```sh
