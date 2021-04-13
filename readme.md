@@ -22,17 +22,18 @@ https://trac.ffmpeg.org/wiki/Encode/MP3
 
 Extract to mp3 with the *highest* quality
 ```sh
-bitrate: 278 kb/s
 ffmpeg -i azure_debian_10_alex.mkv -b:a 320k azure_debian_320KBps.mp3
+ffprobe azure_debian_320KBps.mp3 #bitrate: 320 kb/s
 ```
 
 Extract to mp3 with next-highest quality
 ```sh
 ffmpeg -i azure_debian_10_alex.mkv -qscale:a 0 azure_debian_3.mp3
-ffmpeg -i azure_debian_10_alex.mkv -q:a 0 azure_debian_245KBps.mp3
-
 ffprobe azure_debian_245KBps.mp3 #bitrate: 278 kb/s
+
+ffmpeg -i azure_debian_10_alex.mkv -q:a 0 azure_debian_245KBps.mp3
 ffprobe azure_debian_3.mp3 #bitrate: 278 kb/s
+
 #these two commands are the same
 ```
 
