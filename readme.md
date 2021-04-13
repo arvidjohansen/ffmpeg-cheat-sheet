@@ -20,7 +20,7 @@ ffmpeg -i adobe.mkv -c copy -map 0 adobe.mp4
 ## Extracting audio
 https://trac.ffmpeg.org/wiki/Encode/MP3
 
-###Extract to mp3 with the different qualities
+Extract to mp3 with the different qualities
 -b:a 320k -> 320 kb/s
 ```sh
 ffmpeg -i azure_debian_10_alex.mkv -b:a 320k azure_debian_320KBps.mp3 #320 kb/s
