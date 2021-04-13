@@ -26,3 +26,10 @@ convert to mp4, keep all audio tracks
 ffmpeg -i adobe.mkv -c copy -map 0 adobe.mp4
 ```
 
+## Extracting audio
+https://trac.ffmpeg.org/wiki/Encode/MP3
+
+Extract to mp3 with highest quality
+``` 
+ffmpeg -i azure_debian_10_alex.mkv -qscale:a 0 azure_debian_3.mp3
+```
