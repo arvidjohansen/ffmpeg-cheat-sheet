@@ -29,7 +29,7 @@ https://trac.ffmpeg.org/wiki/Encode/MP3
 
 static bitrate
 ```sh
--b:a ... xxxk ...
+ffmpeg ... -b:a xxxk ...
 ``` 
 variable bitrate
 ```sh
