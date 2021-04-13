@@ -30,9 +30,9 @@ Extract to mp3 with next-highest quality
 ffmpeg -i azure_debian_10_alex.mkv -qscale:a 0 azure_debian_3.mp3
 ffmpeg -i azure_debian_10_alex.mkv -q:a 0 azure_debian_245KBps.mp3
 
-ffprobe azure_debian_245KBps.mp3 # bitrate: 278 kb/s
-ffprobe azure_debian_3.mp3 # bitrate: 278 kb/s
-# these two commands are the same
+ffprobe azure_debian_245KBps.mp3 #bitrate: 278 kb/s
+ffprobe azure_debian_3.mp3 #bitrate: 278 kb/s
+#these two commands are the same
 ```
 
 ffmpeg -i adobe.mkv -c:a mp3 -q:a 1 adobe.mp3
