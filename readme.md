@@ -21,7 +21,7 @@ ffmpeg -i adobe.mkv -c copy -map 0 adobe.mp4
 
 cut video starting at 00:13:50 for duration 00:01:00
 ```sh
-ffmpeg -i azure_debian_10_alex.mkv -codec copy -map 0 -ss 00:13:50 -t 00:01:00 azure_debian_cut.mp4 
+ffmpeg -i azure_debian_10_alex.mkv -ss 00:13:50 -t 00:01:00 azure_debian_cut.mp4
 ```
 
 # Extracting audio
@@ -79,5 +79,10 @@ Keep different audio tracks
 ffmpeg -i adobe.mkv -map 0:1 adobe.mp3 # keep first audio track
 ffmpeg -i adobe.mkv -map 0:2 adobe.mp3 # keep second audio track
 ffmpeg -i adobe.mkv -c copy -map 0 adobe.mp4 # keep all audio tracks
-
 ```
+
+Resouces
+* quick guide using ffmpeg to convert media files - https://opensource.com/article/17/6/ffmpeg-convert-media-file-formats
+* high quality audio - https://trac.ffmpeg.org/wiki/Encode/HighQualityAudio
+* mp3 - https://trac.ffmpeg.org/wiki/Encode/MP3
+
