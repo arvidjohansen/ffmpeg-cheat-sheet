@@ -85,3 +85,6 @@ Resouces
 * high quality audio - https://trac.ffmpeg.org/wiki/Encode/HighQualityAudio
 * mp3 - https://trac.ffmpeg.org/wiki/Encode/MP3
 
+
+## Streaming with ffmpeg
+https://trac.ffmpeg.org/wiki/StreamingGuide#Pointtopointstreaming
