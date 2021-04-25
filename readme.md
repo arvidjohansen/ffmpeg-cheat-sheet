@@ -80,6 +80,16 @@ ffmpeg -i adobe.mkv -map 0:2 adobe.mp3 # keep second audio track
 ffmpeg -i adobe.mkv -c copy -map 0 adobe.mp4 # keep all audio tracks
 ```
 
+## Converting stereo to mono
+Keep left audio channel without losing (too much?) quality:
+```sh
+ffmpeg -i video.mov -map_channel 0.1.0 -ab 512k -c:v copy videomono.mov
+```
+Keep right audio channel without losing (too much?) quality:
+```sh
+ffmpeg -i video.mov -map_channel 0.1.1 -ab 512k -c:v copy videomono.mov
+```
+
 Resouces
 * quick guide using ffmpeg to convert media files - https://opensource.com/article/17/6/ffmpeg-convert-media-file-formats
 * high quality audio - https://trac.ffmpeg.org/wiki/Encode/HighQualityAudio
