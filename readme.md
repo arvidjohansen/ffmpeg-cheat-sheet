@@ -90,6 +90,20 @@ Keep right audio channel without losing (too much?) quality:
 ffmpeg -i video.mov -map_channel 0.1.1 -ab 512k -c:v copy videomono.mov
 ```
 
+## Combine two clips
+I have two files: clip1.mov and clip2.mov - both 1 minute long.  
+I want to combine both files to a clip that is two min long, without reencoding them.  
+First we have to create a list of the files we want to combine:
+```sh
+(echo file 'clip1.mov' & echo file 'clip2.mov')>list.txt)
+```
+We could also have created the text-file manually.    
+
+When we have a list containing the filenames we want to combine, simply use this command to combine them:
+```sh
+ffmpeg -safe 0 -f concat -i list.txt -c copy combined.mov 
+```
+
 Resouces
 * quick guide using ffmpeg to convert media files - https://opensource.com/article/17/6/ffmpeg-convert-media-file-formats
 * high quality audio - https://trac.ffmpeg.org/wiki/Encode/HighQualityAudio
