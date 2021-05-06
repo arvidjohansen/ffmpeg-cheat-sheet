@@ -105,8 +105,9 @@ ffmpeg -safe 0 -f concat -i list.txt -c copy combined.mov
 ```
 
 ## Combine video and audio from different clips
-Lets say I recorded a video on my camera that I want to remove background noise from using audacity
+[How to merge audio and video in ffmpeg - Stackoverflow](https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg)  
 Filename of video: DSC_0562.MOV
+Lets say I recorded a video on my camera that I want to remove background noise from using audacity 
 1) Export audio to out.wav
 ```sh
 ffmpeg -i DSC_0562.MOV out.wav
