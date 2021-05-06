@@ -104,6 +104,18 @@ When we have a list containing the filenames we want to combine, simply use this
 ffmpeg -safe 0 -f concat -i list.txt -c copy combined.mov 
 ```
 
+## Combine video and audio from different clips
+Lets say I recorded a video on my camera that I want to remove background noise from using audacity
+Filename of video: DSC_0562.MOV
+1) Export audio to out.wav
+```sh
+ffmpeg -i DSC_0562.MOV out.wav
+```
+2) Open wav in audacity, remove noise, export to out-noise-removed.wav
+3) Combine video from original clip and audio from noise-removed clips:
+```sh
+ffmpeg -i DSC_0562.MOV i out-noise-removed.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 out.mp4
+```
 Resouces
 * quick guide using ffmpeg to convert media files - https://opensource.com/article/17/6/ffmpeg-convert-media-file-formats
 * high quality audio - https://trac.ffmpeg.org/wiki/Encode/HighQualityAudio
