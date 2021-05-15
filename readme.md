@@ -125,7 +125,8 @@ To extract parts of the video simply input starting point with `-ss 00:00:00` an
 ```sh
 ffmpeg -i input.mp4 -ss 00:00:00 -t 00:00:35 -c copy output.mp4
 ```
-> Note that the -ss and -t arguments has to come **before** encoding parameters    
+> Note that the -ss and -t arguments has to come **before** encoding parameters 
+
 To avoid re-encoding the entire thing simply use `-c copy` which will copy both the audio and the video codec
 
 Resouces
