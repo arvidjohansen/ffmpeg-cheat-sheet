@@ -117,6 +117,17 @@ ffmpeg -i DSC_0562.MOV out.wav
 ```sh
 ffmpeg -i DSC_0562.MOV i out-noise-removed.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 out.mp4
 ```
+
+
+# Extracting parts of the video
+Lets say I want to remove the last 5 seconds of a 40 second clip  
+To extract parts of the video simply input starting point with `-ss 00:00:00` and length with `-t 00:00:35`   
+```sh
+ffmpeg -i input.mp4 -ss 00:00:00 -t 00:00:35 -c copy output.mp4
+```
+> Note that the -ss and -t arguments has to come **before** encoding parameters  
+To avoid re-encoding the entire thing simply use `-c copy` which will copy both the audio and the video codec
+
 Resouces
 * quick guide using ffmpeg to convert media files - https://opensource.com/article/17/6/ffmpeg-convert-media-file-formats
 * high quality audio - https://trac.ffmpeg.org/wiki/Encode/HighQualityAudio
