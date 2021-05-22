@@ -132,9 +132,9 @@ To avoid re-encoding the entire thing simply use `-c copy` which will copy both 
 # Reducing size of video files
 Original file (mostly powerpoint presentation with still images):
 prosjekt-intro.mp4 4.137807 GB  
-encoder         : Lavf57.84.100  
-  Duration: 00:46:34.47, start: 0.000000, bitrate: 12130 kb/s
-  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1920x1080, 11999 kb/s, 30 fps, 30 tbr, 15360 tbn, 60 tbc (default)   
+>encoder         : Lavf57.84.100  
+>  Duration: 00:46:34.47, start: 0.000000, bitrate: 12130 kb/s
+>  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1920x1080, 11999 kb/s, 30 fps, 30 tbr, 15360 tbn, 60 tbc >(default)   
 
 `ffmpeg -i prosjekt-intro.mp4 -c:a copy -c:v libx265 -preset fast -crf <VALUE> -qphist -tune stillimage output-file.mp4`   
 File sizes with different values for the `-crf`-parameter
