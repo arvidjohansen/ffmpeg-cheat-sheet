@@ -129,6 +129,28 @@ ffmpeg -i input.mp4 -ss 00:00:00 -t 00:00:35 -c copy output.mp4
 
 To avoid re-encoding the entire thing simply use `-c copy` which will copy both the audio and the video codec
 
+# Reducing size of video files
+Original file (mostly powerpoint presentation with still images):
+prosjekt-intro.mp4 4.137807 GB  
+encoder         : Lavf57.84.100  
+  Duration: 00:46:34.47, start: 0.000000, bitrate: 12130 kb/s
+  Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1920x1080, 11999 kb/s, 30 fps, 30 tbr, 15360 tbn, 60 tbc (default)   
+
+`ffmpeg -i prosjekt-intro.mp4 -c:a copy -c:v libx265 -preset fast -crf <VALUE> -qphist -tune stillimage output-file.mp4`   
+File sizes with different values for the `-crf`-parameter
+
+|crf-value|size|ratio|description
+|---|---|---|---|
+|-|4 137 807 MB|1.0|Original file|
+|10|629 MB|15.2%|Good - somewhat noticable
+|20|264 MB|6.4%|Noticable - but still ok
+|51|55 MB|1.3%|Useless - barely watchable
+
+
+
+
+
+
 Resouces
 * quick guide using ffmpeg to convert media files - https://opensource.com/article/17/6/ffmpeg-convert-media-file-formats
 * high quality audio - https://trac.ffmpeg.org/wiki/Encode/HighQualityAudio
