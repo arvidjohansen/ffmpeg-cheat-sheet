@@ -141,13 +141,13 @@ prosjekt-intro.mp4 4.137807 GB
  
 File sizes with different values for the `-crf`-parameter:    
 
-|crf-value|size|ratio|description
-|---|---|---|---|
-|-|4 137 807 MB|1.0|Original file|
-|5|1 103 092 MB|26.6%|Barely noticable|
-|10|629 MB|15.2%|Good - somewhat noticable
-|20|264 MB|6.4%|Noticable - but still ok
-|51|55 MB|1.3%|Useless - barely watchable
+|crf-value|size|ratio|bitrate|description
+|---|---|---|---|---|
+|-|4 137 807 MB|100%|12130 KB/s|Original file|
+|5|1 103 092 MB|26.6%|3233 KB/s|Barely noticable|
+|10|629 MB|15.2%|2051 KB/s|Good - somewhat noticable
+|20|264 MB|6.4%|774 KB/s|Noticable - but still ok
+|51|55 MB|1.3%|161 KB/s|Useless - barely watchable
 
 
 
