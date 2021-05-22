@@ -144,7 +144,9 @@ File sizes with different values for the `-crf`-parameter:
 |crf-value|size|ratio|bitrate|description
 |---|---|---|---|---|
 |-|4 137 807 MB|100%|12130 KB/s|Original file|
-|5|1 103 092 MB|26.6%|3233 KB/s|Barely noticable|
+|0|1 277 728 MB|30.9%|3745 KB/s|Barely noticable
+|1|---|---|---|---|
+|5|1 103 092 MB|26.6%|3233 KB/s|Barely noticable
 |10|629 MB|15.2%|2051 KB/s|Good - somewhat noticable
 |20|264 MB|6.4%|774 KB/s|Noticable - but still ok
 |51|55 MB|1.3%|161 KB/s|Useless - barely watchable
