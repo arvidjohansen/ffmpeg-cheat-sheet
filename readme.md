@@ -164,3 +164,8 @@ Resouces
 
 ## Streaming with ffmpeg
 https://trac.ffmpeg.org/wiki/StreamingGuide#Pointtopointstreaming
+
+To stream a file to a standard debian/nginx/rtmp setup:
+```sh
+ffmpeg -re -i "My Video.mkv" -c:v copy -c:a aac -ar 44100 -ac 1 -f flv rtmp://localhost/live/stream
+```
