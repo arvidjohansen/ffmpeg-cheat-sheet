@@ -24,6 +24,12 @@ cut video starting at 00:13:50 for duration 00:01:00
 ffmpeg -i azure_debian_10_alex.mkv -ss 00:13:50 -t 00:01:00 azure_debian_cut.mp4
 ```
 
+cut video at 00:13 but re-render so necessary intermiddent frames are in place (?) 
+```sh
+ffmpeg -i video-to-cut.mp4 -c:a copy -c:v libx264 -ss 00:13 out3.mp4
+```
+instead of `-c:copy` use `-c:a copy -c:v libx264`, this seems to be a fix for the first 2-5 seconds of the video being "screwed up" due to missing frames
+
 # Extracting audio
 https://trac.ffmpeg.org/wiki/Encode/MP3
 
