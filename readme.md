@@ -1,6 +1,27 @@
 # ffmpeg-cheat-sheet
 Various useful commands for ffmpeg
 
+## Blanking the screen for a segment (from Django London)
+
+If a speaker accidentally shows private information, such as their email inbox, we can black out the screen in the video before uploading it to YouTube. This can be done with another ffmpeg command:
+
+ffmpeg -i talk.mp4 -f lavfi -i "color=black:s=1920x1200:r=25" -filter_complex \
+"[0:v][1]overlay=enable='between(t,1333,1339)'[video]" \
+-map "[video]" -map 0:a:0 -c:a copy -to 30:20 talk-blanked.mp4
+-f lavfi enables generating a video stream inside ffmpeg.
+
+-i "color=black:s=1920x1200:r=25" generates a stream representing a black screen. The resolution and framerate (r=) must match the input video.
+
+The multiline -filter_complex arguament. The between() value selects the start and end in seconds where black overlay will appear.
+
+The -map arguments select what will be output.
+
+-c:a copy copies the audio from the original video without re-encoding it. Unfortunately re-encoding the video required with this setup, so it will lose some quality.
+
+-to should specify the length of the original video. This stops ffmpeg generating an infinite length video, since the overlay stream is infinite.
+
+Multiple blankings can be done by specifying a more complex filter. See the original stack exchange question.
+
 # Convert video format
 Convert lossless (only repack, don't reencode)
 ```sh
